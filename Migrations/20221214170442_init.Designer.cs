@@ -11,7 +11,7 @@ using PatientCRUD.Models;
 namespace PatientCRUD.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221214130459_init")]
+    [Migration("20221214170442_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -60,6 +60,10 @@ namespace PatientCRUD.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(5)
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("TEXT");

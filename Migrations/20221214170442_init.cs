@@ -20,7 +20,8 @@ namespace PatientCRUD.Migrations
                     FirstName = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
                     LastName = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
                     BirthDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Gender = table.Column<string>(type: "TEXT", nullable: false)
+                    Gender = table.Column<string>(type: "TEXT", nullable: false),
+                    Address = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

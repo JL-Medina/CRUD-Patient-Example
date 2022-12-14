@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.addressDataGridView = new System.Windows.Forms.DataGridView();
             this.PatientAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +45,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.patientDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BirhtDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
@@ -51,15 +58,15 @@
             this.BirthDateLabel = new System.Windows.Forms.Label();
             this.LastNameLabel = new System.Windows.Forms.Label();
             this.FirstNameLabel = new System.Windows.Forms.Label();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BirhtDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientsAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientsAddressesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.patientManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addressDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientsAddressesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientManagerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -224,8 +231,6 @@
             // 
             // patientDataGridView1
             // 
-            this.patientDataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.patientDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.patientDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.patientDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -234,14 +239,52 @@
             this.Apellido,
             this.BirhtDate,
             this.Gender,
-            this.patientsAddress});
+            this.Address});
             this.patientDataGridView1.Location = new System.Drawing.Point(53, 344);
             this.patientDataGridView1.Name = "patientDataGridView1";
+            this.patientDataGridView1.ReadOnly = true;
             this.patientDataGridView1.RowTemplate.Height = 25;
             this.patientDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.patientDataGridView1.Size = new System.Drawing.Size(1037, 216);
             this.patientDataGridView1.TabIndex = 13;
             this.patientDataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.patientDataGridView1_RowHeaderMouseDoubleClick);
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            // 
+            // BirhtDate
+            // 
+            this.BirhtDate.HeaderText = "Fecha de nacimiento";
+            this.BirhtDate.Name = "BirhtDate";
+            this.BirhtDate.ReadOnly = true;
+            // 
+            // Gender
+            // 
+            this.Gender.HeaderText = "Sexo";
+            this.Gender.Name = "Gender";
+            this.Gender.ReadOnly = true;
+            // 
+            // Address
+            // 
+            this.Address.HeaderText = "Domicilio";
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
             // 
             // button1
             // 
@@ -304,36 +347,17 @@
             this.FirstNameLabel.TabIndex = 0;
             this.FirstNameLabel.Text = "Nombre";
             // 
-            // Id
+            // patientsAddressesBindingSource
             // 
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
+            this.patientsAddressesBindingSource.DataSource = typeof(PatientCRUD.Entities.PatientsAddresses);
             // 
-            // Nombre
+            // patientBindingSource
             // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
+            this.patientBindingSource.DataSource = typeof(PatientCRUD.Models.Entities.Patient);
             // 
-            // Apellido
+            // patientManagerBindingSource
             // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            // 
-            // BirhtDate
-            // 
-            this.BirhtDate.HeaderText = "Fecha de nacimiento";
-            this.BirhtDate.Name = "BirhtDate";
-            // 
-            // Gender
-            // 
-            this.Gender.HeaderText = "Sexo";
-            this.Gender.Name = "Gender";
-            // 
-            // patientsAddress
-            // 
-            this.patientsAddress.HeaderText = "Domicilio";
-            this.patientsAddress.Name = "patientsAddress";
+            this.patientManagerBindingSource.DataSource = typeof(PatientCRUD.Manager.PatientManager);
             // 
             // Form1
             // 
@@ -349,6 +373,9 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addressDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientsAddressesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientManagerBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -383,6 +410,9 @@
         private DataGridViewTextBoxColumn Apellido;
         private DataGridViewTextBoxColumn BirhtDate;
         private DataGridViewTextBoxColumn Gender;
-        private DataGridViewTextBoxColumn patientsAddress;
+        private DataGridViewTextBoxColumn Address;
+        private BindingSource patientsAddressesBindingSource;
+        private BindingSource patientBindingSource;
+        private BindingSource patientManagerBindingSource;
     }
 }

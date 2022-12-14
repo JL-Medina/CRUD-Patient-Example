@@ -3,6 +3,8 @@ using PatientCRUD.Manager;
 using PatientCRUD.Models;
 using PatientCRUD.Models.Entities;
 using PatientCRUD.Views;
+using System.Linq;
+using System.Data.SqlClient;
 
 namespace PatientCRUD
 {
@@ -29,22 +31,13 @@ namespace PatientCRUD
         public void LoadData()
         {
             var patients = _patientManager.GetPatients();
-            var patientsAddresses = _patientManager.GetPatientsAddresses();
             patientDataGridView1.Rows.Clear();
-            addressDataGridView.Rows.Clear();
-            //patients.Add(patientsAddresses);
+            
 
             foreach (var patient in patients)
             {
-                patientDataGridView1.Rows.Add(patient.Id, patient.FirstName, patient.LastName, patient.BirthDate, patient.Gender);
-                
-                foreach(var address in patientsAddresses)
-                {
-                    if(address.PatientId == patient.Id)
-                    {
-                        patientDataGridView1.Rows.Add(address.Address);
-                    }
-                }
+                patientDataGridView1.Rows.Add(patient.Id, patient.FirstName, patient.LastName, patient.BirthDate, patient.Gender, patient.Address);
+
             }
 
 
@@ -91,6 +84,7 @@ namespace PatientCRUD
                 patientAddress.PatientId = patient.Id;
                 patientAddress.Street = streetTextBox.Text;
                 patientAddress.StreetNumber = Convert.ToInt32(streetNumberTextBox.Text);
+                patient.Address = patientAddress.Address;
 
                 if (floorTextBox.Text == null)
                 {

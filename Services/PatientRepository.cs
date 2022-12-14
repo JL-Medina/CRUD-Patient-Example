@@ -39,13 +39,13 @@ namespace PatientCRUD.Services
             data.LastName = patient.LastName;
             data.BirthDate = patient.BirthDate;
             data.Gender = patient.Gender;
+            data.Address = patientAddress.Address;
 
             data2.PatientId = patient.Id;
             data2.Street = patientAddress.Street;
             data2.StreetNumber = patientAddress.StreetNumber;
             data2.Floor = patientAddress.Floor;
             data2.Apartment = patientAddress.Apartment;
-            //data2.Address = patientsAddresses.Address;
             return _dbContext.SaveChanges() > 0;
         }
 

@@ -22,6 +22,7 @@ namespace PatientCRUD.Models.Entities
         public string Name { get => FirstName + " " + LastName; }
         public DateTime BirthDate { get; set; }
         public string Gender { get; set; }
+        public string Address { get; set; }
        
 
 

@@ -58,6 +58,10 @@ namespace PatientCRUD.Migrations
                         .HasMaxLength(5)
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("TEXT");
 
