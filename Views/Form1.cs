@@ -32,7 +32,6 @@ namespace PatientCRUD
         {
             var patients = _patientManager.GetPatients();
             patientDataGridView1.Rows.Clear();
-            
 
             foreach (var patient in patients)
             {
@@ -55,23 +54,36 @@ namespace PatientCRUD
         {
             try
             {
+
                 if (string.IsNullOrEmpty(FirstNameTextBox.Text))
                 {
                     MessageBox.Show("Ingrese un nombre", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     FirstNameTextBox.Focus();
+                    return;
                 }
                 if (string.IsNullOrEmpty(LastNameTextBox.Text))
                 {
                     MessageBox.Show("Ingrese un apellido", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     LastNameTextBox.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(genderComboBox.Text))
+                {
+                    MessageBox.Show("Seleccione sexo", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    genderComboBox.Focus();
+                    return;
                 }
                 if (string.IsNullOrEmpty(streetTextBox.Text))
                 {
                     MessageBox.Show("Ingrese una calle", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    streetTextBox.Focus();
+                    return;
                 }
                 if (string.IsNullOrEmpty(streetNumberTextBox.Text))
                 {
                     MessageBox.Show("Ingrese un numero de calle", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    streetNumberTextBox.Focus();
+                    return;
                 }
                 Patient patient = new Patient();
                 patient.FirstName = FirstNameTextBox.Text;
@@ -86,7 +98,7 @@ namespace PatientCRUD
                 patientAddress.StreetNumber = Convert.ToInt32(streetNumberTextBox.Text);
                 patient.Address = patientAddress.Address;
 
-                if (floorTextBox.Text == null)
+                if (string.IsNullOrEmpty(floorTextBox.Text))
                 {
                     patientAddress.Floor = null;
                 }
@@ -99,8 +111,6 @@ namespace PatientCRUD
                     patientAddress.Apartment = apartmentTextBox.Text;
                 }
                 
-
-
                 if (_patientManager.Add(patient, patientAddress))
                 {
                     MessageBox.Show("Paciente creado con exito", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -138,10 +148,12 @@ namespace PatientCRUD
                 formPatientDetail pntDetail = new formPatientDetail();
                 //this.Hide();
                 //frm.Show();
-                pntDetail.patientId.Text = dr.Cells[0].Value.ToString();
-                pntDetail.FirstNameTextBox.Text = dr.Cells[1].Value.ToString();
-                pntDetail.LastNameTextBox.Text = dr.Cells[2].Value.ToString();
-                //pntDetail = dr.Cells[3].Value.ToString();
+                pntDetail.patientIdLabel.Text = dr.Cells[0].Value.ToString();
+                pntDetail.FirstNameTextBoxUpdate.Text = dr.Cells[1].Value.ToString();
+                pntDetail.LastNameTextBoxUpdate.Text = dr.Cells[2].Value.ToString();
+                pntDetail.genderComboBoxUpdate.Text = dr.Cells[4].Value.ToString();
+
+                
                 pntDetail.ShowDialog();
 
             }
@@ -168,9 +180,7 @@ namespace PatientCRUD
 
         private void LoadButton_Click(object sender, EventArgs e)
         {
-            //LoadData();
-            String query = "select * from Patients, PatientsAddresses";
-            
+            this.Reset();      
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

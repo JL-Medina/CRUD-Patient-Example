@@ -24,9 +24,13 @@ namespace PatientCRUD.Manager
         {
             return _patientRepository.GetPatientAddress();
         }
-        public bool Update(Patient patient, PatientsAddresses patientAddress)
+        public bool Update(Patient patient)
         {
-            return _patientRepository.Update(patient, patientAddress);
+            return _patientRepository.Update(patient);
+        }
+        public bool UpdateAddress(PatientsAddresses address)
+        {
+            return _patientRepository.UpdateAddress(address);
         }
 
     }

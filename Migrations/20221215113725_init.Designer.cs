@@ -11,7 +11,7 @@ using PatientCRUD.Models;
 namespace PatientCRUD.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221214170442_init")]
+    [Migration("20221215113725_init")]
     partial class init
     {
         /// <inheritdoc />

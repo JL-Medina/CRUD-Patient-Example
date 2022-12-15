@@ -27,10 +27,10 @@ namespace PatientCRUD.Services
         {
             return _dbContext.PatientsAddresses.ToList();
         }
-        public bool Update(Patient patient, PatientsAddresses patientAddress)
+        public bool Update(Patient patient)
         {
             var data = _dbContext.Patients.FirstOrDefault(c => c.Id == patient.Id);
-            var data2 = _dbContext.PatientsAddresses.FirstOrDefault(c => c.Id == patientAddress.Id);
+            
             if (data == null)
             {
                 return false;
@@ -39,15 +39,21 @@ namespace PatientCRUD.Services
             data.LastName = patient.LastName;
             data.BirthDate = patient.BirthDate;
             data.Gender = patient.Gender;
-            data.Address = patientAddress.Address;
-
-            data2.PatientId = patient.Id;
-            data2.Street = patientAddress.Street;
-            data2.StreetNumber = patientAddress.StreetNumber;
-            data2.Floor = patientAddress.Floor;
-            data2.Apartment = patientAddress.Apartment;
+            data.Address = patient.Address;
             return _dbContext.SaveChanges() > 0;
         }
-
+        public bool UpdateAddress(PatientsAddresses address)
+        {
+            var data2 = _dbContext.PatientsAddresses.FirstOrDefault(c => c.Id == address.PatientId);
+            if (data2 == null)
+            {
+                return false;
+            }   
+            data2.Street = address.Street;
+            data2.StreetNumber = address.StreetNumber;
+            data2.Floor = address.Floor;
+            data2.Apartment = address.Apartment;
+            return _dbContext.SaveChanges() > 0;
+        }
     }
 }
