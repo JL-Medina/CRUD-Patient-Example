@@ -88,8 +88,17 @@ namespace PatientCRUD
                 Patient patient = new Patient();
                 patient.FirstName = FirstNameTextBox.Text;
                 patient.LastName = LastNameTextBox.Text;
-                patient.BirthDate = dateTimePicker.Value;
                 patient.Gender = genderComboBox.Text;
+                if(dateTimePicker.Value > DateTime.Today)
+                {
+                    MessageBox.Show("Ingrese una fecha valida", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    streetNumberTextBox.Focus();
+                    return;
+                }
+                else
+                {
+                    patient.BirthDate = dateTimePicker.Value;
+                }
 
                 PatientsAddresses patientAddress = new PatientsAddresses();
                 patientAddress.Patient = patient;
@@ -135,6 +144,7 @@ namespace PatientCRUD
             streetNumberTextBox.Clear();
             floorTextBox.Clear();
             apartmentTextBox.Clear();
+            SearchTextBox.Clear();
             LoadData();
 
         }
@@ -151,9 +161,7 @@ namespace PatientCRUD
                 pntDetail.patientIdLabel.Text = dr.Cells[0].Value.ToString();
                 pntDetail.FirstNameTextBoxUpdate.Text = dr.Cells[1].Value.ToString();
                 pntDetail.LastNameTextBoxUpdate.Text = dr.Cells[2].Value.ToString();
-                pntDetail.genderComboBoxUpdate.Text = dr.Cells[4].Value.ToString();
-
-                
+                pntDetail.genderComboBoxUpdate.Text = dr.Cells[4].Value.ToString();              
                 pntDetail.ShowDialog();
 
             }
@@ -162,30 +170,62 @@ namespace PatientCRUD
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
             }
         }
-
-        private void GenderLabel_Click(object sender, EventArgs e)
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                DataGridViewRow dr = patientDataGridView1.SelectedRows[0];
+                if(MessageBox.Show("Desea eliminar el registro del paciente?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int id = (int)dr.Cells[0].Value;
+                    bool isDelete = _patientManager.Delete(id);
+                    if (isDelete)
+                    {
+                        MessageBox.Show("Paciente eliminado con exito", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fallo la eliminacion del paciente", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (string.IsNullOrEmpty(SearchTextBox.Text))
+                {
+                    MessageBox.Show("Ingrese un ID de paciente", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    SearchTextBox.Focus();
+                    return;
+                }
+                if (SearchTextBox.Text.Length > 6)
+                {
+                    MessageBox.Show("El ID ingresado es demasiado largo", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    SearchTextBox.Focus();
+                    return;
+                }
+                //int id = Convert.ToInt32(SearchTextBox.Text);
+                //var patient = _patientManager.GetPatientsById(id);
+                //patientDataGridView1.Rows.Clear();
 
-        }
+                //patientDataGridView1.Rows.Add(patient);
 
-        private void label3_Click(object sender, EventArgs e)
-        {
+               
 
-        }
 
-        private void LoadButton_Click(object sender, EventArgs e)
-        {
-            this.Reset();      
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

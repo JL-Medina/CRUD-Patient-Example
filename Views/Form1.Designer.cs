@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SearchButton = new System.Windows.Forms.Button();
+            this.SearchTextBox = new System.Windows.Forms.TextBox();
+            this.SearchLabel = new System.Windows.Forms.Label();
             this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.LoadButton = new System.Windows.Forms.Button();
             this.apartmentTextBox = new System.Windows.Forms.TextBox();
@@ -43,24 +46,29 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.patientDataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.LastNameTextBox = new System.Windows.Forms.TextBox();
-            this.FirstNameTextBox = new System.Windows.Forms.TextBox();
-            this.GenderLabel = new System.Windows.Forms.Label();
-            this.BirthDateLabel = new System.Windows.Forms.Label();
-            this.LastNameLabel = new System.Windows.Forms.Label();
-            this.FirstNameLabel = new System.Windows.Forms.Label();
-            this.patientsAddressesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.patientManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BirhtDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LastNameTextBox = new System.Windows.Forms.TextBox();
+            this.FirstNameTextBox = new System.Windows.Forms.TextBox();
+            this.GenderLabel = new System.Windows.Forms.Label();
+            this.BirthDateLabel = new System.Windows.Forms.Label();
+            this.LastNameLabel = new System.Windows.Forms.Label();
+            this.FirstNameLabel = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.patientsAddressesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.patientManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientsAddressesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientManagerBindingSource)).BeginInit();
@@ -68,6 +76,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.SearchButton);
+            this.groupBox1.Controls.Add(this.SearchTextBox);
+            this.groupBox1.Controls.Add(this.SearchLabel);
             this.groupBox1.Controls.Add(this.genderComboBox);
             this.groupBox1.Controls.Add(this.LoadButton);
             this.groupBox1.Controls.Add(this.apartmentTextBox);
@@ -81,20 +92,45 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.dateTimePicker);
             this.groupBox1.Controls.Add(this.patientDataGridView1);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.LastNameTextBox);
             this.groupBox1.Controls.Add(this.FirstNameTextBox);
             this.groupBox1.Controls.Add(this.GenderLabel);
             this.groupBox1.Controls.Add(this.BirthDateLabel);
             this.groupBox1.Controls.Add(this.LastNameLabel);
             this.groupBox1.Controls.Add(this.FirstNameLabel);
+            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1150, 582);
+            this.groupBox1.Size = new System.Drawing.Size(1158, 625);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Informacion del paciente";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.Location = new System.Drawing.Point(318, 310);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(75, 23);
+            this.SearchButton.TabIndex = 30;
+            this.SearchButton.Text = "Buscar";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // SearchTextBox
+            // 
+            this.SearchTextBox.Location = new System.Drawing.Point(207, 310);
+            this.SearchTextBox.Name = "SearchTextBox";
+            this.SearchTextBox.Size = new System.Drawing.Size(100, 23);
+            this.SearchTextBox.TabIndex = 29;
+            // 
+            // SearchLabel
+            // 
+            this.SearchLabel.AutoSize = true;
+            this.SearchLabel.Location = new System.Drawing.Point(57, 313);
+            this.SearchLabel.Name = "SearchLabel";
+            this.SearchLabel.Size = new System.Drawing.Size(146, 15);
+            this.SearchLabel.TabIndex = 28;
+            this.SearchLabel.Text = "Ingrese un ID de paciente: ";
             // 
             // genderComboBox
             // 
@@ -110,13 +146,12 @@
             // 
             // LoadButton
             // 
-            this.LoadButton.Location = new System.Drawing.Point(53, 304);
+            this.LoadButton.Location = new System.Drawing.Point(1015, 566);
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(75, 23);
             this.LoadButton.TabIndex = 25;
             this.LoadButton.Text = "Actualizar";
             this.LoadButton.UseVisualStyleBackColor = true;
-            this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
             // 
             // apartmentTextBox
             // 
@@ -175,7 +210,6 @@
             this.label3.Size = new System.Drawing.Size(51, 15);
             this.label3.TabIndex = 18;
             this.label3.Text = "Numero";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -194,7 +228,6 @@
             this.label2.Size = new System.Drawing.Size(58, 15);
             this.label2.TabIndex = 16;
             this.label2.Text = "Domicilio";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // dateTimePicker
             // 
@@ -218,6 +251,7 @@
             this.BirhtDate,
             this.Gender,
             this.Address});
+            this.patientDataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.patientDataGridView1.Location = new System.Drawing.Point(53, 344);
             this.patientDataGridView1.Name = "patientDataGridView1";
             this.patientDataGridView1.ReadOnly = true;
@@ -226,79 +260,6 @@
             this.patientDataGridView1.Size = new System.Drawing.Size(1037, 216);
             this.patientDataGridView1.TabIndex = 13;
             this.patientDataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.patientDataGridView1_RowHeaderMouseDoubleClick);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(998, 304);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // LastNameTextBox
-            // 
-            this.LastNameTextBox.Location = new System.Drawing.Point(157, 87);
-            this.LastNameTextBox.Name = "LastNameTextBox";
-            this.LastNameTextBox.Size = new System.Drawing.Size(317, 23);
-            this.LastNameTextBox.TabIndex = 7;
-            // 
-            // FirstNameTextBox
-            // 
-            this.FirstNameTextBox.Location = new System.Drawing.Point(157, 52);
-            this.FirstNameTextBox.Name = "FirstNameTextBox";
-            this.FirstNameTextBox.Size = new System.Drawing.Size(317, 23);
-            this.FirstNameTextBox.TabIndex = 4;
-            // 
-            // GenderLabel
-            // 
-            this.GenderLabel.AutoSize = true;
-            this.GenderLabel.Location = new System.Drawing.Point(53, 126);
-            this.GenderLabel.Name = "GenderLabel";
-            this.GenderLabel.Size = new System.Drawing.Size(32, 15);
-            this.GenderLabel.TabIndex = 3;
-            this.GenderLabel.Text = "Sexo";
-            this.GenderLabel.Click += new System.EventHandler(this.GenderLabel_Click);
-            // 
-            // BirthDateLabel
-            // 
-            this.BirthDateLabel.AutoSize = true;
-            this.BirthDateLabel.Location = new System.Drawing.Point(546, 55);
-            this.BirthDateLabel.Name = "BirthDateLabel";
-            this.BirthDateLabel.Size = new System.Drawing.Size(117, 15);
-            this.BirthDateLabel.TabIndex = 2;
-            this.BirthDateLabel.Text = "Fecha de nacimiento";
-            // 
-            // LastNameLabel
-            // 
-            this.LastNameLabel.AutoSize = true;
-            this.LastNameLabel.Location = new System.Drawing.Point(53, 87);
-            this.LastNameLabel.Name = "LastNameLabel";
-            this.LastNameLabel.Size = new System.Drawing.Size(51, 15);
-            this.LastNameLabel.TabIndex = 1;
-            this.LastNameLabel.Text = "Apellido";
-            // 
-            // FirstNameLabel
-            // 
-            this.FirstNameLabel.AutoSize = true;
-            this.FirstNameLabel.Location = new System.Drawing.Point(53, 52);
-            this.FirstNameLabel.Name = "FirstNameLabel";
-            this.FirstNameLabel.Size = new System.Drawing.Size(51, 15);
-            this.FirstNameLabel.TabIndex = 0;
-            this.FirstNameLabel.Text = "Nombre";
-            // 
-            // patientsAddressesBindingSource
-            // 
-            this.patientsAddressesBindingSource.DataSource = typeof(PatientCRUD.Entities.PatientsAddresses);
-            // 
-            // patientBindingSource
-            // 
-            this.patientBindingSource.DataSource = typeof(PatientCRUD.Models.Entities.Patient);
-            // 
-            // patientManagerBindingSource
-            // 
-            this.patientManagerBindingSource.DataSource = typeof(PatientCRUD.Manager.PatientManager);
             // 
             // Id
             // 
@@ -336,11 +297,108 @@
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.eliminarToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(118, 26);
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            // 
+            // LastNameTextBox
+            // 
+            this.LastNameTextBox.Location = new System.Drawing.Point(157, 87);
+            this.LastNameTextBox.Name = "LastNameTextBox";
+            this.LastNameTextBox.Size = new System.Drawing.Size(317, 23);
+            this.LastNameTextBox.TabIndex = 7;
+            // 
+            // FirstNameTextBox
+            // 
+            this.FirstNameTextBox.Location = new System.Drawing.Point(157, 52);
+            this.FirstNameTextBox.Name = "FirstNameTextBox";
+            this.FirstNameTextBox.Size = new System.Drawing.Size(317, 23);
+            this.FirstNameTextBox.TabIndex = 4;
+            // 
+            // GenderLabel
+            // 
+            this.GenderLabel.AutoSize = true;
+            this.GenderLabel.Location = new System.Drawing.Point(53, 126);
+            this.GenderLabel.Name = "GenderLabel";
+            this.GenderLabel.Size = new System.Drawing.Size(32, 15);
+            this.GenderLabel.TabIndex = 3;
+            this.GenderLabel.Text = "Sexo";
+            // 
+            // BirthDateLabel
+            // 
+            this.BirthDateLabel.AutoSize = true;
+            this.BirthDateLabel.Location = new System.Drawing.Point(546, 55);
+            this.BirthDateLabel.Name = "BirthDateLabel";
+            this.BirthDateLabel.Size = new System.Drawing.Size(117, 15);
+            this.BirthDateLabel.TabIndex = 2;
+            this.BirthDateLabel.Text = "Fecha de nacimiento";
+            // 
+            // LastNameLabel
+            // 
+            this.LastNameLabel.AutoSize = true;
+            this.LastNameLabel.Location = new System.Drawing.Point(53, 87);
+            this.LastNameLabel.Name = "LastNameLabel";
+            this.LastNameLabel.Size = new System.Drawing.Size(51, 15);
+            this.LastNameLabel.TabIndex = 1;
+            this.LastNameLabel.Text = "Apellido";
+            // 
+            // FirstNameLabel
+            // 
+            this.FirstNameLabel.AutoSize = true;
+            this.FirstNameLabel.Location = new System.Drawing.Point(53, 52);
+            this.FirstNameLabel.Name = "FirstNameLabel";
+            this.FirstNameLabel.Size = new System.Drawing.Size(51, 15);
+            this.FirstNameLabel.TabIndex = 0;
+            this.FirstNameLabel.Text = "Nombre";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Location = new System.Drawing.Point(6, 19);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1084, 267);
+            this.groupBox2.TabIndex = 27;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Crear Nuevo Paciente";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(986, 238);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Guardar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // patientsAddressesBindingSource
+            // 
+            this.patientsAddressesBindingSource.DataSource = typeof(PatientCRUD.Entities.PatientsAddresses);
+            // 
+            // patientBindingSource
+            // 
+            this.patientBindingSource.DataSource = typeof(PatientCRUD.Models.Entities.Patient);
+            // 
+            // patientManagerBindingSource
+            // 
+            this.patientManagerBindingSource.DataSource = typeof(PatientCRUD.Manager.PatientManager);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 581);
+            this.ClientSize = new System.Drawing.Size(1160, 625);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -349,6 +407,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.patientsAddressesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientManagerBindingSource)).EndInit();
@@ -388,5 +448,11 @@
         private DataGridViewTextBoxColumn BirhtDate;
         private DataGridViewTextBoxColumn Gender;
         private DataGridViewTextBoxColumn Address;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem eliminarToolStripMenuItem;
+        private Button SearchButton;
+        public TextBox SearchTextBox;
+        private Label SearchLabel;
+        private GroupBox groupBox2;
     }
 }

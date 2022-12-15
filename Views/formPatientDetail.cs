@@ -51,11 +51,19 @@ namespace PatientCRUD.Views
                     return;
                 }
                 Patient patient = new Patient();
-                patient.Id = Convert.ToInt32(patientIdLabel.Text);
                 patient.FirstName = FirstNameTextBoxUpdate.Text;
                 patient.LastName = LastNameTextBoxUpdate.Text;
-                patient.BirthDate = dateTimePickerUpdate.Value;
                 patient.Gender = genderComboBoxUpdate.Text;
+                if (dateTimePickerUpdate.Value > DateTime.Today)
+                {
+                    MessageBox.Show("Ingrese una fecha valida", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    streetNumberTextBoxUpdate.Focus();
+                    return;
+                }
+                else
+                {
+                    patient.BirthDate = dateTimePickerUpdate.Value;
+                }
 
                 PatientsAddresses patientAddress = new PatientsAddresses();
                 patientAddress.PatientId = Convert.ToInt32(patientIdLabel.Text);

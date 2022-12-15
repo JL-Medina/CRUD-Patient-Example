@@ -17,8 +17,10 @@ namespace PatientCRUD.Entities
         [ForeignKey("PatientId")]
         public Patient? Patient { get; set; }
         public int PatientId { get; set; }
+        [Required]
         [MaxLength(30)]
         public string Street { get; set; }
+        [Required]
         [MaxLength(2)]
         public int StreetNumber { get; set; }
         [MaxLength(2)]

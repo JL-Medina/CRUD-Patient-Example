@@ -20,7 +20,9 @@ namespace PatientCRUD.Models.Entities
         [MaxLength(30)]
         public string LastName { get; set; }
         public string Name { get => FirstName + " " + LastName; }
+        [Required]
         public DateTime BirthDate { get; set; }
+        [Required]
         public string Gender { get; set; }
         public string Address { get; set; }
        

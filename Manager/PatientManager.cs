@@ -24,6 +24,10 @@ namespace PatientCRUD.Manager
         {
             return _patientRepository.GetPatientAddress();
         }
+        public List<Patient>? GetPatientsById(int id)
+        {
+            return _patientRepository.GetPatientsById(id);
+        }
         public bool Update(Patient patient)
         {
             return _patientRepository.Update(patient);
@@ -31,6 +35,10 @@ namespace PatientCRUD.Manager
         public bool UpdateAddress(PatientsAddresses address)
         {
             return _patientRepository.UpdateAddress(address);
+        }
+        public bool Delete(int id)
+        {
+            return (_patientRepository.Delete(id));
         }
 
     }

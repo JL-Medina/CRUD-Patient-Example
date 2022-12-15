@@ -55,5 +55,27 @@ namespace PatientCRUD.Services
             data2.Apartment = address.Apartment;
             return _dbContext.SaveChanges() > 0;
         }
+        public bool Delete(int id)
+        {
+            var patient = _dbContext.Patients.FirstOrDefault(c => c.Id == id);
+            var address = _dbContext.PatientsAddresses.FirstOrDefault(c => c.PatientId == id);
+            if (patient == null || address == null)
+            {
+                return false;
+            }
+            _dbContext.Patients.Remove(patient);
+            _dbContext.PatientsAddresses.Remove(address);
+
+            return _dbContext.SaveChanges() > 0;
+        }
+        public List<Patient>? GetPatientsById(int id)
+        {
+            var patient = _dbContext.Patients.FirstOrDefault(c => c.Id == id);
+            if (patient != null)
+            {
+                return (List<Patient>)_dbContext.Patients.Where(c => c.Id == id);
+            }
+            return null;
+        }
     }
 }
