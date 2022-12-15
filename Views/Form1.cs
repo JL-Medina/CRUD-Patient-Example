@@ -91,7 +91,16 @@ namespace PatientCRUD
                 patientAddress.Patient = patient;
                 patientAddress.PatientId = patient.Id;
                 patientAddress.Street = streetTextBox.Text;
-                patientAddress.StreetNumber = Convert.ToInt32(streetNumberTextBox.Text);
+                if(streetNumberTextBox.Text.Length > 2)
+                {
+                    MessageBox.Show("El numero de calle debe contener un maximo de dos(2) digitos", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    streetNumberTextBox.Focus();
+                    return;
+                }
+                else
+                {
+                    patientAddress.StreetNumber = Convert.ToInt32(streetNumberTextBox.Text);
+                }
                 patient.Address = patientAddress.Address;
 
                 if (string.IsNullOrEmpty(floorTextBox.Text))
@@ -100,10 +109,22 @@ namespace PatientCRUD
                 }
                 else
                 {
+                    if(floorTextBox.Text.Length > 2)
+                    {
+                        MessageBox.Show("El numero de piso debe contener un maximo de dos(2) digitos", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        floorTextBox.Focus();
+                        return;
+                    }
                     patientAddress.Floor = Convert.ToInt32(floorTextBox.Text);
                 }
                 if (apartmentTextBox.Text != null)
                 {
+                    if (apartmentTextBox.Text.Length > 2)
+                    {
+                        MessageBox.Show("El numero de apartamento debe contener un maximo de dos(2) caracteres", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        apartmentTextBox.Focus();
+                        return;
+                    }
                     patientAddress.Apartment = apartmentTextBox.Text;
                 }
                 
@@ -185,7 +206,7 @@ namespace PatientCRUD
         {
             try
             {
-               LoadData();
+               Reset();
             }
             catch(Exception ex)
             {

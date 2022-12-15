@@ -49,13 +49,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.patientIdLabel = new System.Windows.Forms.Label();
             this.updateButton1 = new System.Windows.Forms.Button();
-            this.AddressId = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.AddressId);
             this.groupBox1.Controls.Add(this.genderComboBoxUpdate);
             this.groupBox1.Controls.Add(this.apartmentTextBoxUpdate);
             this.groupBox1.Controls.Add(this.floorTextBoxUpdate);
@@ -82,7 +80,6 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle del paciente";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // genderComboBoxUpdate
             // 
@@ -261,15 +258,6 @@
             this.updateButton1.UseVisualStyleBackColor = true;
             this.updateButton1.Click += new System.EventHandler(this.updateButton1_Click);
             // 
-            // AddressId
-            // 
-            this.AddressId.AutoSize = true;
-            this.AddressId.Location = new System.Drawing.Point(169, 194);
-            this.AddressId.Name = "AddressId";
-            this.AddressId.Size = new System.Drawing.Size(59, 15);
-            this.AddressId.TabIndex = 44;
-            this.AddressId.Text = "AddressId";
-            // 
             // formPatientDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -310,6 +298,5 @@
         public DateTimePicker dateTimePickerUpdate;
         public TextBox LastNameTextBoxUpdate;
         public TextBox FirstNameTextBoxUpdate;
-        public Label AddressId;
     }
 }
