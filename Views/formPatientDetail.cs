@@ -51,6 +51,7 @@ namespace PatientCRUD.Views
                     return;
                 }
                 Patient patient = new Patient();
+                patient.Id = Convert.ToInt32(patientIdLabel.Text);
                 patient.FirstName = FirstNameTextBoxUpdate.Text;
                 patient.LastName = LastNameTextBoxUpdate.Text;
                 patient.Gender = genderComboBoxUpdate.Text;

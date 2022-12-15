@@ -32,24 +32,11 @@ namespace PatientCRUD
         {
             var patients = _patientManager.GetPatients();
             patientDataGridView1.Rows.Clear();
-
             foreach (var patient in patients)
             {
                 patientDataGridView1.Rows.Add(patient.Id, patient.FirstName, patient.LastName, patient.BirthDate, patient.Gender, patient.Address);
-
             }
-
-
-
         }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-            
-        }
-
-        
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -152,8 +139,7 @@ namespace PatientCRUD
         public void patientDataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
-            {
-                
+            {                
                 DataGridViewRow dr = patientDataGridView1.SelectedRows[0];
                 formPatientDetail pntDetail = new formPatientDetail();
                 //this.Hide();
@@ -163,7 +149,6 @@ namespace PatientCRUD
                 pntDetail.LastNameTextBoxUpdate.Text = dr.Cells[2].Value.ToString();
                 pntDetail.genderComboBoxUpdate.Text = dr.Cells[4].Value.ToString();              
                 pntDetail.ShowDialog();
-
             }
             catch (Exception ex)
             {
@@ -196,7 +181,19 @@ namespace PatientCRUD
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void LoadButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               LoadData();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -206,23 +203,25 @@ namespace PatientCRUD
                     SearchTextBox.Focus();
                     return;
                 }
-                if (SearchTextBox.Text.Length > 6)
+                if (SearchTextBox.Text.Length > 5)
                 {
                     MessageBox.Show("El ID ingresado es demasiado largo", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     SearchTextBox.Focus();
                     return;
                 }
-                //int id = Convert.ToInt32(SearchTextBox.Text);
-                //var patient = _patientManager.GetPatientsById(id);
-                //patientDataGridView1.Rows.Clear();
-
-                //patientDataGridView1.Rows.Add(patient);
-
-               
-
-
+                
+                int id = Convert.ToInt32(SearchTextBox.Text);
+                var patient = _patientManager.GetPatientsById(id);
+                if (patient == null)
+                {
+                    MessageBox.Show("El ID ingresado no es valido", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    SearchTextBox.Focus();
+                    return;
+                }
+                patientDataGridView1.Rows.Clear();
+                patientDataGridView1.Rows.Add(patient.Id, patient.FirstName, patient.LastName, patient.BirthDate, patient.Gender, patient.Address);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

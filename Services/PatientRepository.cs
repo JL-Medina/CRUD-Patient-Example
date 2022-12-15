@@ -68,12 +68,12 @@ namespace PatientCRUD.Services
 
             return _dbContext.SaveChanges() > 0;
         }
-        public List<Patient>? GetPatientsById(int id)
+        public Patient? GetPatientsById(int id)
         {
             var patient = _dbContext.Patients.FirstOrDefault(c => c.Id == id);
             if (patient != null)
             {
-                return (List<Patient>)_dbContext.Patients.Where(c => c.Id == id);
+                return patient;
             }
             return null;
         }

@@ -104,7 +104,6 @@
             this.groupBox1.Size = new System.Drawing.Size(1158, 625);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // SearchButton
             // 
@@ -114,7 +113,7 @@
             this.SearchButton.TabIndex = 30;
             this.SearchButton.Text = "Buscar";
             this.SearchButton.UseVisualStyleBackColor = true;
-            this.SearchButton.Click += new System.EventHandler(this.button2_Click);
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // SearchTextBox
             // 
@@ -152,6 +151,7 @@
             this.LoadButton.TabIndex = 25;
             this.LoadButton.Text = "Actualizar";
             this.LoadButton.UseVisualStyleBackColor = true;
+            this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
             // 
             // apartmentTextBox
             // 

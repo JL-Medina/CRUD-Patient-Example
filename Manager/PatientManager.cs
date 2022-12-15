@@ -24,7 +24,7 @@ namespace PatientCRUD.Manager
         {
             return _patientRepository.GetPatientAddress();
         }
-        public List<Patient>? GetPatientsById(int id)
+        public Patient? GetPatientsById(int id)
         {
             return _patientRepository.GetPatientsById(id);
         }
