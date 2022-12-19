@@ -34,7 +34,6 @@
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.SearchLabel = new System.Windows.Forms.Label();
             this.genderComboBox = new System.Windows.Forms.ComboBox();
-            this.LoadButton = new System.Windows.Forms.Button();
             this.apartmentTextBox = new System.Windows.Forms.TextBox();
             this.floorTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,15 +44,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.patientDataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BirhtDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
             this.GenderLabel = new System.Windows.Forms.Label();
@@ -62,13 +52,27 @@
             this.FirstNameLabel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.patientDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BirhtDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.informacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LoadButton = new System.Windows.Forms.Button();
             this.patientsAddressesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.patientManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientsAddressesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientManagerBindingSource)).BeginInit();
@@ -80,7 +84,6 @@
             this.groupBox1.Controls.Add(this.SearchTextBox);
             this.groupBox1.Controls.Add(this.SearchLabel);
             this.groupBox1.Controls.Add(this.genderComboBox);
-            this.groupBox1.Controls.Add(this.LoadButton);
             this.groupBox1.Controls.Add(this.apartmentTextBox);
             this.groupBox1.Controls.Add(this.floorTextBox);
             this.groupBox1.Controls.Add(this.label5);
@@ -91,7 +94,6 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.dateTimePicker);
-            this.groupBox1.Controls.Add(this.patientDataGridView1);
             this.groupBox1.Controls.Add(this.LastNameTextBox);
             this.groupBox1.Controls.Add(this.FirstNameTextBox);
             this.groupBox1.Controls.Add(this.GenderLabel);
@@ -99,6 +101,7 @@
             this.groupBox1.Controls.Add(this.LastNameLabel);
             this.groupBox1.Controls.Add(this.FirstNameLabel);
             this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1158, 625);
@@ -107,7 +110,7 @@
             // 
             // SearchButton
             // 
-            this.SearchButton.Location = new System.Drawing.Point(318, 310);
+            this.SearchButton.Location = new System.Drawing.Point(1015, 324);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(75, 23);
             this.SearchButton.TabIndex = 30;
@@ -117,7 +120,7 @@
             // 
             // SearchTextBox
             // 
-            this.SearchTextBox.Location = new System.Drawing.Point(207, 310);
+            this.SearchTextBox.Location = new System.Drawing.Point(904, 324);
             this.SearchTextBox.Name = "SearchTextBox";
             this.SearchTextBox.Size = new System.Drawing.Size(100, 23);
             this.SearchTextBox.TabIndex = 29;
@@ -125,7 +128,7 @@
             // SearchLabel
             // 
             this.SearchLabel.AutoSize = true;
-            this.SearchLabel.Location = new System.Drawing.Point(57, 313);
+            this.SearchLabel.Location = new System.Drawing.Point(754, 327);
             this.SearchLabel.Name = "SearchLabel";
             this.SearchLabel.Size = new System.Drawing.Size(146, 15);
             this.SearchLabel.TabIndex = 28;
@@ -142,16 +145,6 @@
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(150, 23);
             this.genderComboBox.TabIndex = 26;
-            // 
-            // LoadButton
-            // 
-            this.LoadButton.Location = new System.Drawing.Point(1015, 566);
-            this.LoadButton.Name = "LoadButton";
-            this.LoadButton.Size = new System.Drawing.Size(75, 23);
-            this.LoadButton.TabIndex = 25;
-            this.LoadButton.Text = "Actualizar";
-            this.LoadButton.UseVisualStyleBackColor = true;
-            this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
             // 
             // apartmentTextBox
             // 
@@ -240,77 +233,6 @@
             this.dateTimePicker.TabIndex = 14;
             this.dateTimePicker.Value = new System.DateTime(2022, 12, 14, 0, 0, 0, 0);
             // 
-            // patientDataGridView1
-            // 
-            this.patientDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.patientDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.patientDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Nombre,
-            this.Apellido,
-            this.BirhtDate,
-            this.Gender,
-            this.Address});
-            this.patientDataGridView1.ContextMenuStrip = this.contextMenuStrip1;
-            this.patientDataGridView1.Location = new System.Drawing.Point(53, 344);
-            this.patientDataGridView1.Name = "patientDataGridView1";
-            this.patientDataGridView1.ReadOnly = true;
-            this.patientDataGridView1.RowTemplate.Height = 25;
-            this.patientDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.patientDataGridView1.Size = new System.Drawing.Size(1037, 216);
-            this.patientDataGridView1.TabIndex = 13;
-            this.patientDataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.patientDataGridView1_RowHeaderMouseDoubleClick);
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // BirhtDate
-            // 
-            this.BirhtDate.HeaderText = "Fecha de nacimiento";
-            this.BirhtDate.Name = "BirhtDate";
-            this.BirhtDate.ReadOnly = true;
-            // 
-            // Gender
-            // 
-            this.Gender.HeaderText = "Sexo";
-            this.Gender.Name = "Gender";
-            this.Gender.ReadOnly = true;
-            // 
-            // Address
-            // 
-            this.Address.HeaderText = "Domicilio";
-            this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.eliminarToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(118, 26);
-            // 
-            // eliminarToolStripMenuItem
-            // 
-            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.eliminarToolStripMenuItem.Text = "Eliminar";
-            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
-            // 
             // LastNameTextBox
             // 
             this.LastNameTextBox.Location = new System.Drawing.Point(157, 87);
@@ -365,7 +287,7 @@
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Location = new System.Drawing.Point(6, 19);
+            this.groupBox2.Location = new System.Drawing.Point(31, 22);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1084, 267);
             this.groupBox2.TabIndex = 27;
@@ -381,6 +303,113 @@
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.patientDataGridView1);
+            this.groupBox3.Controls.Add(this.LoadButton);
+            this.groupBox3.Location = new System.Drawing.Point(42, 331);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1062, 282);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Listado de pacientes";
+            // 
+            // patientDataGridView1
+            // 
+            this.patientDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.patientDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.patientDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Nombre,
+            this.Apellido,
+            this.BirhtDate,
+            this.Gender,
+            this.Address});
+            this.patientDataGridView1.ContextMenuStrip = this.contextMenuStrip1;
+            this.patientDataGridView1.Location = new System.Drawing.Point(11, 22);
+            this.patientDataGridView1.Name = "patientDataGridView1";
+            this.patientDataGridView1.ReadOnly = true;
+            this.patientDataGridView1.RowTemplate.Height = 25;
+            this.patientDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.patientDataGridView1.Size = new System.Drawing.Size(1037, 216);
+            this.patientDataGridView1.TabIndex = 13;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            // 
+            // BirhtDate
+            // 
+            this.BirhtDate.HeaderText = "Fecha de nacimiento";
+            this.BirhtDate.Name = "BirhtDate";
+            this.BirhtDate.ReadOnly = true;
+            // 
+            // Gender
+            // 
+            this.Gender.HeaderText = "Sexo";
+            this.Gender.Name = "Gender";
+            this.Gender.ReadOnly = true;
+            // 
+            // Address
+            // 
+            this.Address.HeaderText = "Domicilio";
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.informacionToolStripMenuItem,
+            this.editarToolStripMenuItem,
+            this.eliminarToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(140, 70);
+            // 
+            // informacionToolStripMenuItem
+            // 
+            this.informacionToolStripMenuItem.Name = "informacionToolStripMenuItem";
+            this.informacionToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.informacionToolStripMenuItem.Text = "Informacion";
+            this.informacionToolStripMenuItem.Click += new System.EventHandler(this.informacionToolStripMenuItem_Click);
+            // 
+            // editarToolStripMenuItem
+            // 
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.editarToolStripMenuItem.Text = "Editar";
+            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            // 
+            // LoadButton
+            // 
+            this.LoadButton.Location = new System.Drawing.Point(973, 244);
+            this.LoadButton.Name = "LoadButton";
+            this.LoadButton.Size = new System.Drawing.Size(75, 23);
+            this.LoadButton.TabIndex = 25;
+            this.LoadButton.Text = "Actualizar";
+            this.LoadButton.UseVisualStyleBackColor = true;
+            this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
             // 
             // patientsAddressesBindingSource
             // 
@@ -402,13 +431,14 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "ABM Pacientes";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.patientsAddressesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientManagerBindingSource)).EndInit();
@@ -454,5 +484,8 @@
         public TextBox SearchTextBox;
         private Label SearchLabel;
         private GroupBox groupBox2;
+        private ToolStripMenuItem informacionToolStripMenuItem;
+        private ToolStripMenuItem editarToolStripMenuItem;
+        private GroupBox groupBox3;
     }
 }

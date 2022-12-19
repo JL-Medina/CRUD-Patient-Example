@@ -30,15 +30,6 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.genderComboBoxUpdate = new System.Windows.Forms.ComboBox();
-            this.apartmentTextBoxUpdate = new System.Windows.Forms.TextBox();
-            this.floorTextBoxUpdate = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.streetNumberTextBoxUpdate = new System.Windows.Forms.TextBox();
-            this.streetTextBoxUpdate = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.dateTimePickerUpdate = new System.Windows.Forms.DateTimePicker();
             this.LastNameTextBoxUpdate = new System.Windows.Forms.TextBox();
             this.FirstNameTextBoxUpdate = new System.Windows.Forms.TextBox();
@@ -55,15 +46,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.genderComboBoxUpdate);
-            this.groupBox1.Controls.Add(this.apartmentTextBoxUpdate);
-            this.groupBox1.Controls.Add(this.floorTextBoxUpdate);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.streetNumberTextBoxUpdate);
-            this.groupBox1.Controls.Add(this.streetTextBoxUpdate);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.dateTimePickerUpdate);
             this.groupBox1.Controls.Add(this.LastNameTextBoxUpdate);
             this.groupBox1.Controls.Add(this.FirstNameTextBoxUpdate);
@@ -76,7 +58,7 @@
             this.groupBox1.Controls.Add(this.updateButton1);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(544, 459);
+            this.groupBox1.Size = new System.Drawing.Size(544, 260);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle del paciente";
@@ -92,82 +74,6 @@
             this.genderComboBoxUpdate.Name = "genderComboBoxUpdate";
             this.genderComboBoxUpdate.Size = new System.Drawing.Size(150, 23);
             this.genderComboBoxUpdate.TabIndex = 43;
-            // 
-            // apartmentTextBoxUpdate
-            // 
-            this.apartmentTextBoxUpdate.Location = new System.Drawing.Point(169, 333);
-            this.apartmentTextBoxUpdate.Name = "apartmentTextBoxUpdate";
-            this.apartmentTextBoxUpdate.Size = new System.Drawing.Size(317, 23);
-            this.apartmentTextBoxUpdate.TabIndex = 42;
-            // 
-            // floorTextBoxUpdate
-            // 
-            this.floorTextBoxUpdate.AcceptsReturn = true;
-            this.floorTextBoxUpdate.AcceptsTab = true;
-            this.floorTextBoxUpdate.AllowDrop = true;
-            this.floorTextBoxUpdate.Location = new System.Drawing.Point(169, 298);
-            this.floorTextBoxUpdate.Name = "floorTextBoxUpdate";
-            this.floorTextBoxUpdate.Size = new System.Drawing.Size(317, 23);
-            this.floorTextBoxUpdate.TabIndex = 41;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(65, 333);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 15);
-            this.label5.TabIndex = 40;
-            this.label5.Text = "Dpto";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(65, 298);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 15);
-            this.label6.TabIndex = 39;
-            this.label6.Text = "Piso";
-            // 
-            // streetNumberTextBoxUpdate
-            // 
-            this.streetNumberTextBoxUpdate.Location = new System.Drawing.Point(169, 260);
-            this.streetNumberTextBoxUpdate.Name = "streetNumberTextBoxUpdate";
-            this.streetNumberTextBoxUpdate.Size = new System.Drawing.Size(317, 23);
-            this.streetNumberTextBoxUpdate.TabIndex = 38;
-            // 
-            // streetTextBoxUpdate
-            // 
-            this.streetTextBoxUpdate.Location = new System.Drawing.Point(169, 225);
-            this.streetTextBoxUpdate.Name = "streetTextBoxUpdate";
-            this.streetTextBoxUpdate.Size = new System.Drawing.Size(317, 23);
-            this.streetTextBoxUpdate.TabIndex = 37;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(65, 260);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 15);
-            this.label3.TabIndex = 36;
-            this.label3.Text = "Numero";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(65, 225);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 15);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "Calle";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(64, 194);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 15);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Domicilio";
             // 
             // dateTimePickerUpdate
             // 
@@ -250,7 +156,7 @@
             // 
             // updateButton1
             // 
-            this.updateButton1.Location = new System.Drawing.Point(370, 385);
+            this.updateButton1.Location = new System.Drawing.Point(203, 202);
             this.updateButton1.Name = "updateButton1";
             this.updateButton1.Size = new System.Drawing.Size(116, 23);
             this.updateButton1.TabIndex = 17;
@@ -262,13 +168,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 461);
+            this.ClientSize = new System.Drawing.Size(546, 272);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "formPatientDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Detalles del paciente";
+            this.Text = "Editar Paciente";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -281,20 +187,11 @@
         private Button updateButton1;
         public Label patientIdLabel;
         private Label label1;
-        private Label label5;
-        private Label label6;
-        private Label label3;
-        private Label label4;
-        private Label label2;
         private Label GenderLabel;
         private Label BirthDateLabel;
         private Label label7;
         private Label label8;
         public ComboBox genderComboBoxUpdate;
-        public TextBox apartmentTextBoxUpdate;
-        public TextBox floorTextBoxUpdate;
-        public TextBox streetNumberTextBoxUpdate;
-        public TextBox streetTextBoxUpdate;
         public DateTimePicker dateTimePickerUpdate;
         public TextBox LastNameTextBoxUpdate;
         public TextBox FirstNameTextBoxUpdate;

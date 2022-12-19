@@ -157,25 +157,26 @@ namespace PatientCRUD
 
         }
 
-        public void patientDataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            try
-            {                
-                DataGridViewRow dr = patientDataGridView1.SelectedRows[0];
-                formPatientDetail pntDetail = new formPatientDetail();
-                //this.Hide();
-                //frm.Show();
-                pntDetail.patientIdLabel.Text = dr.Cells[0].Value.ToString();
-                pntDetail.FirstNameTextBoxUpdate.Text = dr.Cells[1].Value.ToString();
-                pntDetail.LastNameTextBoxUpdate.Text = dr.Cells[2].Value.ToString();
-                pntDetail.genderComboBoxUpdate.Text = dr.Cells[4].Value.ToString();              
-                pntDetail.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
-            }
-        }
+        //public void patientDataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        //{
+        //    try
+        //    {                
+        //        DataGridViewRow dr = patientDataGridView1.SelectedRows[0];
+        //        formPatientDetail pntDetail = new formPatientDetail();
+        //        //this.Hide();
+        //        //frm.Show();
+        //        pntDetail.patientIdLabel.Text = dr.Cells[0].Value.ToString();
+        //        pntDetail.FirstNameTextBoxUpdate.Text = dr.Cells[1].Value.ToString();
+        //        pntDetail.LastNameTextBoxUpdate.Text = dr.Cells[2].Value.ToString();
+        //        pntDetail.genderComboBoxUpdate.Text = dr.Cells[4].Value.ToString();              
+        //        pntDetail.ShowDialog();
+        //        Reset();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
+        //    }
+        //}
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -245,6 +246,46 @@ namespace PatientCRUD
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void informacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewRow dr = patientDataGridView1.SelectedRows[0];
+                AddressDetail addressDetail = new AddressDetail();
+                addressDetail.PatientIdLabel.Text = dr.Cells[0].Value.ToString();
+                addressDetail.NameLabel.Text = dr.Cells[1].Value.ToString();
+                addressDetail.LastNameLabel.Text = dr.Cells[2].Value.ToString();
+                addressDetail.BirthDateLabel.Text = dr.Cells[3].Value.ToString();
+                addressDetail.GenderLabel.Text = dr.Cells[4].Value.ToString();
+                addressDetail.LoadAddresses();
+                addressDetail.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
+            }
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewRow dr = patientDataGridView1.SelectedRows[0];
+                formPatientDetail pntDetail = new formPatientDetail();
+                //this.Hide();
+                //frm.Show();
+                pntDetail.patientIdLabel.Text = dr.Cells[0].Value.ToString();
+                pntDetail.FirstNameTextBoxUpdate.Text = dr.Cells[1].Value.ToString();
+                pntDetail.LastNameTextBoxUpdate.Text = dr.Cells[2].Value.ToString();
+                pntDetail.genderComboBoxUpdate.Text = dr.Cells[4].Value.ToString();
+                pntDetail.ShowDialog();
+                Reset();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
             }
         }
     }

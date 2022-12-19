@@ -38,18 +38,7 @@ namespace PatientCRUD.Views
                     genderComboBoxUpdate.Focus();
                     return;
                 }
-                if (string.IsNullOrEmpty(streetTextBoxUpdate.Text))
-                {
-                    MessageBox.Show("Ingrese una calle", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    streetTextBoxUpdate.Focus();
-                    return;
-                }
-                if (string.IsNullOrEmpty(streetNumberTextBoxUpdate.Text))
-                {
-                    MessageBox.Show("Ingrese un numero de calle", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    streetNumberTextBoxUpdate.Focus();
-                    return;
-                }
+              
                 Patient patient = new Patient();
                 patient.Id = Convert.ToInt32(patientIdLabel.Text);
                 patient.FirstName = FirstNameTextBoxUpdate.Text;
@@ -58,7 +47,7 @@ namespace PatientCRUD.Views
                 if (dateTimePickerUpdate.Value > DateTime.Today)
                 {
                     MessageBox.Show("Ingrese una fecha valida", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    streetNumberTextBoxUpdate.Focus();
+                    dateTimePickerUpdate.Focus();
                     return;
                 }
                 else
@@ -66,32 +55,8 @@ namespace PatientCRUD.Views
                     patient.BirthDate = dateTimePickerUpdate.Value;
                 }
 
-                PatientsAddresses patientAddress = new PatientsAddresses();
-                patientAddress.PatientId = Convert.ToInt32(patientIdLabel.Text);
-                patientAddress.Street = streetTextBoxUpdate.Text;
-                patientAddress.StreetNumber = Convert.ToInt32(streetNumberTextBoxUpdate.Text);
-                patient.Address = patientAddress.Address;
-
-                if (string.IsNullOrEmpty(floorTextBoxUpdate.Text))
-                {
-                    patientAddress.Floor = null;
-                }
-                else
-                {
-                    patientAddress.Floor = Convert.ToInt32(floorTextBoxUpdate.Text);
-                }
-                if (string.IsNullOrEmpty(apartmentTextBoxUpdate.Text))
-                {
-                    patientAddress.Apartment = null;
-                }
-                else
-                {
-                    patientAddress.Apartment = apartmentTextBoxUpdate.Text;
-                }
-
                 if (_patientManager.Update(patient))
                 {
-                    _patientManager.UpdateAddress(patientAddress);
                     MessageBox.Show("Paciente editado con exito", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
@@ -106,6 +71,7 @@ namespace PatientCRUD.Views
             }
             
         }
+
         
     }
 }
